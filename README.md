@@ -7,11 +7,15 @@ Artigo: Uma análise sobre o Sistema de Recomendação para usuários anônimos 
 Autor: Fernando Tamberlini Alves
 
 Arquivos:
+
 \scripts\capturaREG.py - Script que captura dados de Assunto e Título do Vídeo na Condição I
+
 \scripts\capturaNAV.py - Script que captura dados de Assunto e Título do Vídeo na Condição II
+
 \scripts\capturaVPN.py - Script que captura dados de Assunto e Título do Vídeo na Condição III
 
 \resultados\dAssunto_C<Nº da Condição – 1, 2 ou 3 >_<Indicador Idioma, Tema ou Local VPN - 01..05>_<Data hora>
+
 \resultados\dTitulo_C<Nº da Condição – 1, 2 ou 3 >_<Indicador Idioma, Tema ou Local VPN - 01..05>_<Data hora>
 
 
