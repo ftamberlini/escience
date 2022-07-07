@@ -1,6 +1,6 @@
 #Disciplina: E-science
 #Script: capturaNAV.py
-#Objetivo: Capturar as Tag (assunto) e Títulos dos vídeos do YouTube sem alterar configurações
+#Objetivo: Capturar as Tag (assunto) e Títulos dos vídeos do YouTube sem alterar configurações com histórico de navegação anterior
 
 import time
 import requests
@@ -91,7 +91,7 @@ for  j,nav in enumerate(temasNav):
     dfTitulo.to_csv(nmArq,sep=';',encoding="utf-8")
    
     nmArq=nmArqTitulo+'ALL.csv'
-    dfAssunto.to_csv(nmArq,sep=';',encoding="utf-8",mode="a",header=False)
+    dfTitulo.to_csv(nmArq,sep=';',encoding="utf-8",mode="a",header=False)
     
     mAssunto.clear()
     mTitulo.clear()
