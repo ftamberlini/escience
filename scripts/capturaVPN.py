@@ -1,6 +1,6 @@
 #Disciplina: E-science
 #Script: capturaVPN.py
-#Objetivo: Capturar as Tag (assunto) e Títulos dos vídeos do YouTube sem alterar configurações
+#Objetivo: Capturar as Tag (assunto) e Títulos dos vídeos do YouTube com alteração de configuração de idioma no Navegador e uso de VPN do local do idioma
 
 from locale import windows_locale
 import os, locale, ctypes
@@ -15,13 +15,13 @@ from selenium.webdriver.firefox.options import Options
 import json
 from datetime import datetime
 
-qtdIteracoes = 1
+qtdIteracoes = 10
 tEspera = 5
 url = 'http://youtube.com'
-idiomas = ['de-DE, de','es-ES, es','fr-FR, fr','en-GB, en','ja-JP, ja']
-siglas = ['de_DE.UTF-8','es_ES.UTF-8','fr_FR.UTF-8', 'en_GB.UTF-8','ja_JP.UTF-8']
-indNomeArq=['01','02','03','04','05']
 
+idiomas = ['ja-JP, ja']
+siglas = ['ja_JP.UTF-8']
+indNomeArq=['01','02','03','04','05']
 
 option = Options()
 option.headless = True
@@ -80,11 +80,6 @@ for  j,nav in enumerate(idiomas):
     dfAssunto = pd.DataFrame(mAssunto)
     dfTitulo = pd.DataFrame(mTitulo)
 
-    dfAssunto.to_csv('Assunto.csv',sep=';') 
-    dfTitulo.to_csv('Titulo.csv',sep=';')
-
-    dfAssunto = pd.DataFrame(mAssunto)
-    dfTitulo = pd.DataFrame(mTitulo)
     nmDH = str(datetime.now().strftime("%Y%m%d_%H%M%S"))
    
     nmArq=nmArqAssunto+indNomeArq[j]+'_'+nmDH+'.csv'
@@ -97,7 +92,7 @@ for  j,nav in enumerate(idiomas):
     dfTitulo.to_csv(nmArq,sep=';',encoding="utf-8")
    
     nmArq=nmArqTitulo+'ALL.csv'
-    dfAssunto.to_csv(nmArq,sep=';',encoding="utf-8",mode="a",header=False)
+    dfTitulo.to_csv(nmArq,sep=';',encoding="utf-8",mode="a",header=False)
     
     mAssunto.clear()
     mTitulo.clear()
