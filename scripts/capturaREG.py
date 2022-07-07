@@ -1,6 +1,6 @@
 #Disciplina: E-science
 #Script: capturaREG.py
-#Objetivo: Capturar as Tag (assunto) e Títulos dos vídeos do YouTube sem alterar configurações
+#Objetivo: Capturar as Tag (assunto) e Títulos dos vídeos do YouTube com alteração de configuração de idioma no Navegador
 
 from locale import windows_locale
 import os, locale, ctypes
@@ -41,7 +41,7 @@ for  j,nav in enumerate(idiomas):
         #driver = webdriver.Firefox(options=option)
         
         #Abrindo o navegador
-        driver = webdriver.Firefox(firefox_profile=profile)
+        driver = webdriver.Firefox(firefox_profile=profile,options=option)
         
         #Abrindo a URL do youtube
         driver.get(url)
@@ -97,7 +97,7 @@ for  j,nav in enumerate(idiomas):
     dfTitulo.to_csv(nmArq,sep=';',encoding="utf-8")
    
     nmArq=nmArqTitulo+'ALL.csv'
-    dfAssunto.to_csv(nmArq,sep=';',encoding="utf-8",mode="a",header=False)
+    dfTitulo.to_csv(nmArq,sep=';',encoding="utf-8",mode="a",header=False)
     
     mAssunto.clear()
     mTitulo.clear()
